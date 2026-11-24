@@ -1,0 +1,61 @@
+L  64 #0 x: phi 0.2487 phi_c 0.2482 K   3559.3 mD langkah 2400
+L  64 #0 y: phi 0.2487 phi_c 0.2482 K    437.4 mD langkah 3100
+L  64 #0 z: phi 0.2487 phi_c 0.2482 K   3781.9 mD langkah 1400
+L  64 #1 x: phi 0.3629 phi_c 0.3611 K   7961.3 mD langkah 2200
+L  64 #1 y: phi 0.3629 phi_c 0.3611 K   4002.7 mD langkah 2900
+L  64 #1 z: phi 0.3629 phi_c 0.3611 K   5300.6 mD langkah 1500
+L  64 #2 x: phi 0.3315 phi_c 0.3308 K   2291.0 mD langkah 1000
+L  64 #2 y: phi 0.3315 phi_c 0.3308 K    482.4 mD langkah 1900
+L  64 #2 z: phi 0.3315 phi_c 0.3308 K  19253.3 mD langkah 2500
+L  64 #3 x: phi 0.1437 phi_c 0.1146 K    146.7 mD langkah 8400
+L  64 #3 y: phi 0.1437 phi_c 0.1146 K    302.8 mD langkah 2800
+L  64 #3 z: phi 0.1437 phi_c 0.1146 K    283.5 mD langkah 2400
+L  64 #4 x: phi 0.2391 phi_c 0.2354 K    415.2 mD langkah 1900
+L  64 #4 y: phi 0.2391 phi_c 0.2354 K   1633.5 mD langkah 2500
+L  64 #4 z: phi 0.2391 phi_c 0.2354 K   1234.9 mD langkah 1200
+L  64 #5 x: phi 0.2123 phi_c 0.2067 K   2816.0 mD langkah 1000
+L  64 #5 y: phi 0.2123 phi_c 0.2067 K    601.9 mD langkah 1300
+L  64 #5 z: phi 0.2123 phi_c 0.2067 K   3504.4 mD langkah 1100
+L  64 #6 x: phi 0.1692 phi_c 0.1671 K     59.4 mD langkah 9100
+L  64 #6 y: phi 0.1692 phi_c 0.1671 K    657.1 mD langkah 4400
+L  64 #6 z: phi 0.1692 phi_c 0.1671 K    189.8 mD langkah 22600
+L  64 #7 x: phi 0.2787 phi_c 0.2775 K    720.8 mD langkah 1400
+L  64 #7 y: phi 0.2787 phi_c 0.2775 K   3884.5 mD langkah 2000
+L  64 #7 z: phi 0.2787 phi_c 0.2775 K   3331.5 mD langkah 2500
+L 128 #0 x: phi 0.3671 phi_c 0.3657 K  15255.9 mD langkah 2600
+L 128 #0 y: phi 0.3671 phi_c 0.3657 K   4481.2 mD langkah 5100
+L 128 #0 z: phi 0.3671 phi_c 0.3657 K   4767.2 mD langkah 2600
+L 128 #1 x: phi 0.3065 phi_c 0.3047 K   4670.8 mD langkah 7500
+L 128 #1 y: phi 0.3065 phi_c 0.3047 K   3551.1 mD langkah 2700
+L 128 #1 z: phi 0.3065 phi_c 0.3047 K   4207.4 mD langkah 4200
+L 128 #2 x: phi 0.3228 phi_c 0.3205 K   2360.1 mD langkah 3400
+L 128 #2 y: phi 0.3228 phi_c 0.3205 K  10787.8 mD langkah 2900
+L 128 #2 z: phi 0.3228 phi_c 0.3205 K   4079.9 mD langkah 4100
+L 128 #3 x: phi 0.3595 phi_c 0.3579 K   9983.2 mD langkah 3700
+L 128 #3 y: phi 0.3595 phi_c 0.3579 K   8061.3 mD langkah 4600
+L 128 #3 z: phi 0.3595 phi_c 0.3579 K   3839.9 mD langkah 2800
+L 128 #4 x: phi 0.3061 phi_c 0.3037 K   4564.9 mD langkah 5200
+L 128 #4 y: phi 0.3061 phi_c 0.3037 K   2523.7 mD langkah 5200
+L 128 #4 z: phi 0.3061 phi_c 0.3037 K   2774.4 mD langkah 17100
+L 128 #5 x: phi 0.3431 phi_c 0.3405 K   7677.6 mD langkah 3900
+L 128 #5 y: phi 0.3431 phi_c 0.3405 K   5094.1 mD langkah 2500
+L 128 #5 z: phi 0.3431 phi_c 0.3405 K   5242.8 mD langkah 2400
+L 128 #6 x: phi 0.3144 phi_c 0.3121 K   4627.5 mD langkah 2100
+L 128 #6 y: phi 0.3144 phi_c 0.3121 K   4798.8 mD langkah 2600
+L 128 #6 z: phi 0.3144 phi_c 0.3121 K   2479.4 mD langkah 6600
+L 128 #7 x: phi 0.2720 phi_c 0.2706 K   2162.8 mD langkah 3400
+L 128 #7 y: phi 0.2720 phi_c 0.2706 K   2486.9 mD langkah 3500
+L 128 #7 z: phi 0.2720 phi_c 0.2706 K   2502.9 mD langkah 4700
+
+   L arah   n tembus      phi  Cv phi %  K rerata   Cv K % Cv K semua %
+  64    x   8      8   0.2483     30.28      2246    118.5        118.5
+  64    y   8      8   0.2483     30.28      1500    104.1        104.1
+  64    z   8      8   0.2483     30.28      4610    134.2        134.2
+ 128    x   8      8   0.3240      9.70      6413     68.9         68.9
+ 128    y   8      8   0.3240      9.70      5223     54.8         54.8
+ 128    z   8      8   0.3240      9.70      3737     28.1         28.1
+ 256    x   1      1   0.2640       nan      2737      nan          nan
+ 256    y   1      1   0.2640       nan      3205      nan          nan
+ 256    z   1      1   0.2640       nan      2806      nan          nan
+
+Catatan: pada 256 hanya ada satu domain, sehingga C_v tidak terdefinisi (nan). Apabila C_v K pada 128 masih di atas 5 persen, volume elementer belum dapat dinyatakan tercapai pada 256.

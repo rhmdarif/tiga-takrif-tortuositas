@@ -1,0 +1,12 @@
+{
+ "arah": "y",
+ "backend": "gpu",
+ "langkah": 8800,
+ "konvergen": true,
+ "detik": 337.5880832672119,
+ "irisan_sumbu2": 128,
+ "cacah_bingkai": 74,
+ "K_mD": 3204.5387024943025,
+ "K_mD_tahap2": 3204.5355595375413,
+ "selisih_nisbi_thd_tahap2": 9.807838616815445e-07
+}

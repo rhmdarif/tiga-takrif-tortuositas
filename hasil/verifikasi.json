@@ -1,0 +1,126 @@
+{
+ "celah": [
+  {
+   "h": 8,
+   "k_kisi": 5.374999999925633,
+   "k_teori": 5.333333333333333,
+   "galat_k": 0.007812499986056209,
+   "tau_h": 1.0,
+   "galat_titik_maks": 1.4818433581535675e-11,
+   "galat_k_thd_kuadratur": -1.3835754247719346e-11,
+   "langkah": 950,
+   "konvergen": true,
+   "Ma": 8.183940065644675e-05,
+   "backend": "gpu"
+  },
+  {
+   "h": 16,
+   "k_kisi": 21.374999995196795,
+   "k_teori": 21.333333333333332,
+   "galat_k": 0.0019531247748498237,
+   "tau_h": 1.0,
+   "galat_titik_maks": 2.350870610198223e-10,
+   "galat_k_thd_kuadratur": -2.2471134245109047e-10,
+   "langkah": 3450,
+   "konvergen": true,
+   "Ma": 0.00033125471686970407,
+   "backend": "gpu"
+  },
+  {
+   "h": 32,
+   "k_kisi": 85.37499990205335,
+   "k_teori": 85.33333333333333,
+   "galat_k": 0.00048828010218771034,
+   "tau_h": 1.0,
+   "galat_titik_maks": 1.201416827297383e-09,
+   "galat_k_thd_kuadratur": -1.147252163449817e-09,
+   "langkah": 12800,
+   "konvergen": true,
+   "Ma": 0.0013289159805106514,
+   "backend": "gpu"
+  }
+ ],
+ "celah_jalur_penuh": [
+  {
+   "h": 16,
+   "k_kisi": 18.20109860488532,
+   "k_teori": 18.962962962962962,
+   "galat_k": -0.04017644075800062,
+   "tau_h": 1.0001444688662298,
+   "langkah": 3500,
+   "konvergen": true,
+   "panjang": 96
+  },
+  {
+   "h": 16,
+   "k_kisi": 18.58990249239,
+   "k_teori": 18.962962962962962,
+   "galat_k": -0.01967311075287107,
+   "tau_h": 1.0000722344311455,
+   "langkah": 3350,
+   "konvergen": true,
+   "panjang": 192
+  },
+  {
+   "h": 16,
+   "k_kisi": 18.792181669715983,
+   "k_teori": 18.962962962962962,
+   "galat_k": -0.009006044761071134,
+   "tau_h": 1.0000361172190333,
+   "langkah": 3550,
+   "konvergen": true,
+   "panjang": 384
+  }
+ ],
+ "tabung": [
+  {
+   "arah": "x",
+   "tau_g": 1.0,
+   "tau_g_min": 1.0,
+   "tau_g_perjanjian_keliru": 0.984375,
+   "phi": 0.0244140625,
+   "F": 40.96,
+   "F_phi": 1.0,
+   "tau_e": 1.0
+  },
+  {
+   "arah": "y",
+   "tau_g": 1.0,
+   "tau_g_min": 1.0,
+   "tau_g_perjanjian_keliru": 0.984375,
+   "phi": 0.0244140625,
+   "F": 40.96,
+   "F_phi": 1.0,
+   "tau_e": 1.0
+  },
+  {
+   "arah": "z",
+   "tau_g": 1.0,
+   "tau_g_min": 1.0,
+   "tau_g_perjanjian_keliru": 0.984375,
+   "phi": 0.0244140625,
+   "F": 40.96,
+   "F_phi": 1.0,
+   "tau_e": 1.0
+  }
+ ],
+ "cpu_gpu": {
+  "dijalankan": true,
+  "selisih_nisbi_maks": 9.548934698905413e-13,
+  "lulus": true
+ },
+ "patokan": {
+  "celah_galat_k_maks_persen": 0.7812499986056209,
+  "celah_tau_h_selisih_maks": 0.0,
+  "celah_galat_titik_maks": 1.201416827297383e-09,
+  "tabung_tau_g_selisih_maks": 0.0,
+  "tabung_F_phi_selisih_maks": 0.0
+ },
+ "lulus": {
+  "celah_k": true,
+  "celah_tau_h": true,
+  "celah_profil_titik": true,
+  "tabung_tau_g": true,
+  "tabung_F_phi": true
+ }
+}

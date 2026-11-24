@@ -1,0 +1,6 @@
+Asal: http://grid.unpad.ac.id/~sandstone/data/parameter_batuan.csv (halaman "Flow in Digital Sandstones",
+Nurcahya dan Dharmawan, 2025, Physics of Fluids 37, 053607). Diunduh 2026-11-22.
+Takrif (http://grid.unpad.ac.id/~sandstone/en/metode.html):
+  tortuositas        = tortuositas garis arus <L_lintasan/L_lurus>, RK4 dari 2000 titik masuk berbobot fluks
+  tortuositas_fluks  = <|u|>/<u_x>  (setara tau_h proyek ini)
+Berkas hanya memberi satu nilai tortuositas per batuan; pembandingan memakai rerata tau_h arah x, y, z.

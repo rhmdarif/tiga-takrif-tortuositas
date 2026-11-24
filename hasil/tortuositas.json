@@ -1,0 +1,112 @@
+{
+ "per_arah": [
+  {
+   "arah": "x",
+   "phi_total": 0.26398879289627075,
+   "phi_penghantar": 0.2623934745788574,
+   "n_komponen": 616,
+   "tau_h": 1.4394841384638615,
+   "tau_g": 1.3196429223244268,
+   "tau_g_min": 1.03125,
+   "langkah_min": 263,
+   "n_keluar": 13698,
+   "F": 11.354641722946054,
+   "Deff_rel": 0.08806970967469169,
+   "laplace_info": 0,
+   "laplace_sisa": 9.96497287236275e-10,
+   "laplace_selisih_fluks": 1.1018152708246818e-07,
+   "tau_e": 1.7260891907088345,
+   "tau_e_salah_perjanjian_Fphi": 2.979383894281879,
+   "m_cocok": 1.8159864702837336,
+   "tau_e_archie_phi_penghantar": 1.9521962975827933,
+   "tau_e_archie_phi_total": 1.946288671938897,
+   "nisbah_g_h": 0.9167471089557662,
+   "faktor_KC_g_thd_h": 0.8404252617787554,
+   "fluks_oleh_1persen_tercepat": 0.08660920034222575,
+   "fluks_oleh_5persen_tercepat": 0.2681989950216272,
+   "fluks_oleh_10persen_tercepat": 0.4227838570345755,
+   "fluks_oleh_20persen_tercepat": 0.6399359592498524
+  },
+  {
+   "arah": "y",
+   "phi_total": 0.26398879289627075,
+   "phi_penghantar": 0.2623934745788574,
+   "n_komponen": 616,
+   "tau_h": 1.378467665288579,
+   "tau_g": 1.3326558416488476,
+   "tau_g_min": 1.13671875,
+   "langkah_min": 290,
+   "n_keluar": 16836,
+   "F": 10.599629749155978,
+   "Deff_rel": 0.09434291797594416,
+   "laplace_info": 0,
+   "laplace_sisa": 9.918985681594784e-10,
+   "laplace_selisih_fluks": 2.3290543856360464e-07,
+   "tau_e": 1.6677151073041403,
+   "tau_e_salah_perjanjian_Fphi": 2.78127367913046,
+   "m_cocok": 1.7645573406227266,
+   "tau_e_archie_phi_penghantar": 1.9521962975827933,
+   "tau_e_archie_phi_total": 1.946288671938897,
+   "nisbah_g_h": 0.9667661238683166,
+   "faktor_KC_g_thd_h": 0.9346367382593693,
+   "fluks_oleh_1persen_tercepat": 0.08937385233501645,
+   "fluks_oleh_5persen_tercepat": 0.3014230965007746,
+   "fluks_oleh_10persen_tercepat": 0.4698578068682379,
+   "fluks_oleh_20persen_tercepat": 0.6799087703008956
+  },
+  {
+   "arah": "z",
+   "phi_total": 0.26398879289627075,
+   "phi_penghantar": 0.2623934745788574,
+   "n_komponen": 616,
+   "tau_h": 1.4459924562100044,
+   "tau_g": 1.3342278187440533,
+   "tau_g_min": 1.11328125,
+   "langkah_min": 284,
+   "n_keluar": 23122,
+   "F": 11.374755039493419,
+   "Deff_rel": 0.08791398113875651,
+   "laplace_info": 0,
+   "laplace_sisa": 9.960655250029314e-10,
+   "laplace_selisih_fluks": 5.564844409599421e-08,
+   "tau_e": 1.7276172890128318,
+   "tau_e_salah_perjanjian_Fphi": 2.9846614972960466,
+   "m_cocok": 1.8173092848203698,
+   "tau_e_archie_phi_penghantar": 1.9521962975827933,
+   "tau_e_archie_phi_total": 1.946288671938897,
+   "nisbah_g_h": 0.92270731635842,
+   "faktor_KC_g_thd_h": 0.8513887916613573,
+   "fluks_oleh_1persen_tercepat": 0.08339158131469301,
+   "fluks_oleh_5persen_tercepat": 0.26935687041699413,
+   "fluks_oleh_10persen_tercepat": 0.4248714610031353,
+   "fluks_oleh_20persen_tercepat": 0.6349846529258096
+  }
+ ],
+ "ringkasan": {
+  "tau_h": {
+   "terbesar": 1.4459924562100044,
+   "terkecil": 1.378467665288579,
+   "nisbah_terbesar_terkecil": 1.048985400689315,
+   "arah_terbesar": "z"
+  },
+  "tau_g": {
+   "terbesar": 1.3342278187440533,
+   "terkecil": 1.3196429223244268,
+   "nisbah_terbesar_terkecil": 1.0110521537098358,
+   "arah_terbesar": "z"
+  },
+  "tau_e": {
+   "terbesar": 1.7276172890128318,
+   "terkecil": 1.6677151073041403,
+   "nisbah_terbesar_terkecil": 1.0359187138416726,
+   "arah_terbesar": "z"
+  },
+  "tau_e_archie_phi_penghantar": {
+   "terbesar": 1.9521962975827933,
+   "terkecil": 1.9521962975827933,
+   "nisbah_terbesar_terkecil": 1.0,
+   "arah_terbesar": "x"
+  },
+  "nisbah_g_h_terbesar_pada_arah": "y"
+ }
+}

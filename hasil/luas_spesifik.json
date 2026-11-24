@@ -1,0 +1,33 @@
+{
+ "uji_bola": {
+  "r": 24.0,
+  "luas_eksak": 7238.229473870883,
+  "nisbah_mentah": 1.4953933194676,
+  "nisbah_koreksi_2per3": 0.9969288796450666,
+  "nisbah_marching_cubes": 1.0098799976499464
+ },
+ "per_arah": {
+  "x": {
+   "phi_penghantar": 0.2623934745788574,
+   "S_v_mentah": 0.07526808977127075,
+   "S_v_koreksi_2per3": 0.0501787265141805,
+   "S_v_marching_cubes": 0.050447963178157806,
+   "S_v_koreksi_2per3_per_m": 22301.656228524665
+  },
+  "y": {
+   "phi_penghantar": 0.2623934745788574,
+   "S_v_mentah": 0.07526808977127075,
+   "S_v_koreksi_2per3": 0.0501787265141805,
+   "S_v_marching_cubes": 0.050447989255189896,
+   "S_v_koreksi_2per3_per_m": 22301.656228524665
+  },
+  "z": {
+   "phi_penghantar": 0.2623934745788574,
+   "S_v_mentah": 0.07526808977127075,
+   "S_v_koreksi_2per3": 0.0501787265141805,
+   "S_v_marching_cubes": 0.05044819414615631,
+   "S_v_koreksi_2per3_per_m": 22301.656228524665
+  }
+ },
+ "c0": 2.0
+}

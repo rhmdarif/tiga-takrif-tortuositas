@@ -1,0 +1,60 @@
+s = -0.50 arah x: menjalankan LBM
+Arah x: domain (264, 258, 258), porositas penghantar 0.236453
+  simpul fluida 4,491,312, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 2006.8 mD, langkah 19300, konvergen True, Ma 1.2e-03, Re pori 2.9e-03, 9.7 menit
+s = -0.50 arah y: menjalankan LBM
+Arah y: domain (264, 258, 258), porositas penghantar 0.236453
+  simpul fluida 4,491,312, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 2416.9 mD, langkah 10100, konvergen True, Ma 1.1e-03, Re pori 3.3e-03, 5.1 menit
+s = -0.50 arah z: menjalankan LBM
+Arah z: domain (264, 258, 258), porositas penghantar 0.236453
+  simpul fluida 4,491,312, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 2044.3 mD, langkah 9200, konvergen True, Ma 9.8e-04, Re pori 2.9e-03, 4.6 menit
+s = -0.25 arah x: menjalankan LBM
+Arah x: domain (264, 258, 258), porositas penghantar 0.249805
+  simpul fluida 4,715,317, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 2436.8 mD, langkah 17300, konvergen True, Ma 1.3e-03, Re pori 3.4e-03, 9.2 menit
+s = -0.25 arah y: menjalankan LBM
+Arah y: domain (264, 258, 258), porositas penghantar 0.249805
+  simpul fluida 4,715,317, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 2885.9 mD, langkah 9600, konvergen True, Ma 1.2e-03, Re pori 3.8e-03, 5.1 menit
+s = -0.25 arah z: menjalankan LBM
+Arah z: domain (264, 258, 258), porositas penghantar 0.249805
+  simpul fluida 4,715,317, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 2489.3 mD, langkah 7900, konvergen True, Ma 1.0e-03, Re pori 3.4e-03, 4.2 menit
+s = +0.00 arah x: menjalankan LBM
+Arah x: domain (264, 258, 258), porositas penghantar 0.261009
+  simpul fluida 4,903,298, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 2800.3 mD, langkah 16100, konvergen True, Ma 1.4e-03, Re pori 3.7e-03, 8.9 menit
+s = +0.00 arah y: menjalankan LBM
+Arah y: domain (264, 258, 258), porositas penghantar 0.261009
+  simpul fluida 4,903,298, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 3275.1 mD, langkah 8800, konvergen True, Ma 1.2e-03, Re pori 4.2e-03, 4.9 menit
+s = +0.00 arah z: menjalankan LBM
+Arah z: domain (264, 258, 258), porositas penghantar 0.261009
+  simpul fluida 4,903,298, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 2869.2 mD, langkah 7000, konvergen True, Ma 1.1e-03, Re pori 3.9e-03, 3.8 menit
+s = +0.25 arah x: menjalankan LBM
+Arah x: domain (264, 258, 258), porositas penghantar 0.272244
+  simpul fluida 5,091,783, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 3286.5 mD, langkah 14200, konvergen True, Ma 1.5e-03, Re pori 4.3e-03, 8.1 menit
+s = +0.25 arah y: menjalankan LBM
+Arah y: domain (264, 258, 258), porositas penghantar 0.272244
+  simpul fluida 5,091,783, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 3802.0 mD, langkah 7600, konvergen True, Ma 1.3e-03, Re pori 4.8e-03, 4.3 menit
+s = +0.25 arah z: menjalankan LBM
+Arah z: domain (264, 258, 258), porositas penghantar 0.272244
+  simpul fluida 5,091,783, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 3378.7 mD, langkah 6100, konvergen True, Ma 1.2e-03, Re pori 4.5e-03, 3.5 menit
+s = +0.50 arah x: menjalankan LBM
+Arah x: domain (264, 258, 258), porositas penghantar 0.285943
+  simpul fluida 5,321,609, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 3907.6 mD, langkah 12900, konvergen True, Ma 1.6e-03, Re pori 5.1e-03, 7.7 menit
+s = +0.50 arah y: menjalankan LBM
+Arah y: domain (264, 258, 258), porositas penghantar 0.285943
+  simpul fluida 5,321,609, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 4467.1 mD, langkah 6600, konvergen True, Ma 1.4e-03, Re pori 5.6e-03, 3.9 menit
+s = +0.50 arah z: menjalankan LBM
+Arah z: domain (264, 258, 258), porositas penghantar 0.285943
+  simpul fluida 5,321,609, backend gpu, kolisi trt, tau 1.0, g 2.50e-06
+K = 4025.9 mD, langkah 5300, konvergen True, Ma 1.2e-03, Re pori 5.2e-03, 3.2 menit

@@ -1,0 +1,19 @@
+{
+  "nama_percontoh": "Bentheimer",
+  "berkas": "Bentheimer_2d25um_binary_256.raw",
+  "asal": "Himpunan sebelas batupasir micro-CT pada bundel penugasan; sumber asli Neumann dkk. (2021), doi:10.1038/s41598-021-90090-0",
+  "ukuran": [256, 256, 256],
+  "tipe_data": "uint8",
+  "urutan_indeks": "C",
+  "urutan_byte": "little",
+  "ukuran_voxel_m": 2.25e-06,
+  "arti_nilai": {"0": "pori", "1": "padatan"},
+  "pemetaan_sumbu": {"x": 0, "y": 1, "z": 2},
+  "catatan_pemetaan_sumbu": "Sumbu x, y, z adalah indeks larik ke-0, ke-1, ke-2 setelah berkas dibentuk ulang menjadi (256, 256, 256) dengan urutan C.",
+  "arah_aliran": ["x", "y", "z"],
+  "porositas_acuan": 0.263989,
+  "porositas_tersambung_acuan": 0.262393,
+  "takrif_porositas_tersambung": "kluster pori bersambungan muka (6 tetangga) yang menyentuh muka masuk dan muka keluar; pada percontoh ini nilainya sama pada ketiga arah",
+  "prapemrosesan": [],
+  "ambang_segmentasi": "Citra sudah biner dari sumbernya. Untuk penyapuan ambang, indikator pori dihaluskan dengan tapis Gauss sigma = 1 voxel menjadi aras keabuan semu, lalu diambang pada T = Phi(-s/sigma) sehingga antarmuka datar bergeser s voxel; s = -0,5 ... +0,5. Lihat program/01_kelayakan_dan_ambang.py dan program/05_sapuan_ambang.py"
+}

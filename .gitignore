@@ -1,0 +1,12 @@
+# Berkas besar yang dapat dihasilkan ulang oleh program (lihat README)
+*.npy
+*.npz
+*.bin
+# Titik simpan simulasi yang sedang berjalan
+*.sementara.npz
+titik_simpan.npz
+
+# Python dan notebook
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

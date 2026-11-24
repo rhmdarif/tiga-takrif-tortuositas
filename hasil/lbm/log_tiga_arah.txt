@@ -1,0 +1,41 @@
+Arah x: domain (264, 258, 258), porositas penghantar 0.262393
+  simpul fluida 4,926,520, backend gpu, tau 1.0, g 2.50e-06
+  langkah   2000  <u_x> 2.898649e-05  sisa 3.92e-04   148.0 MLUPS
+  langkah   4000  <u_x> 2.890238e-05  sisa 5.55e-05   148.9 MLUPS
+  langkah   6000  <u_x> 2.888384e-05  sisa 1.95e-05   149.2 MLUPS
+  langkah   8000  <u_x> 2.887608e-05  sisa 9.50e-06   149.4 MLUPS
+  langkah  10000  <u_x> 2.887205e-05  sisa 5.18e-06   149.4 MLUPS
+  langkah  12000  <u_x> 2.886981e-05  sisa 2.93e-06   149.5 MLUPS
+  langkah  14000  <u_x> 2.886853e-05  sisa 1.67e-06   149.5 MLUPS
+Traceback (most recent call last):
+  File "/media/rhmdarif/BATOCERA/TUGAS/DataCitra/TugasAkhir/Proyek-Akhir-Simulasi-Berbasis-Data-Citra/tiga-takrif-tortuositas/program/02_jalankan_simulasi.py", line 96, in <module>
+    main()
+  File "/media/rhmdarif/BATOCERA/TUGAS/DataCitra/TugasAkhir/Proyek-Akhir-Simulasi-Berbasis-Data-Citra/tiga-takrif-tortuositas/program/02_jalankan_simulasi.py", line 79, in main
+    ringkas = dict(arah=arg.arah, backend=r["backend"], tau=arg.tau, g_kisi=arg.g, tol=arg.tol,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'g_kisi'
+Arah y: domain (264, 258, 258), porositas penghantar 0.262393
+  simpul fluida 4,926,520, backend gpu, tau 1.0, g 2.50e-06
+  langkah   2000  <u_x> 3.389042e-05  sisa 3.88e-04   148.9 MLUPS
+  langkah   4000  <u_x> 3.381073e-05  sisa 2.74e-05   149.4 MLUPS
+  langkah   6000  <u_x> 3.380325e-05  sisa 4.20e-06   149.5 MLUPS
+  langkah   8000  <u_x> 3.380168e-05  sisa 1.35e-06   149.6 MLUPS
+Traceback (most recent call last):
+  File "/media/rhmdarif/BATOCERA/TUGAS/DataCitra/TugasAkhir/Proyek-Akhir-Simulasi-Berbasis-Data-Citra/tiga-takrif-tortuositas/program/02_jalankan_simulasi.py", line 96, in <module>
+    main()
+  File "/media/rhmdarif/BATOCERA/TUGAS/DataCitra/TugasAkhir/Proyek-Akhir-Simulasi-Berbasis-Data-Citra/tiga-takrif-tortuositas/program/02_jalankan_simulasi.py", line 79, in main
+    ringkas = dict(arah=arg.arah, backend=r["backend"], tau=arg.tau, g_kisi=arg.g, tol=arg.tol,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'g_kisi'
+Arah z: domain (264, 258, 258), porositas penghantar 0.262393
+  simpul fluida 4,926,520, backend gpu, tau 1.0, g 2.50e-06
+  langkah   2000  <u_x> 2.967194e-05  sisa 4.09e-04   148.9 MLUPS
+  langkah   4000  <u_x> 2.960909e-05  sisa 2.08e-05   149.4 MLUPS
+  langkah   6000  <u_x> 2.960417e-05  sisa 2.83e-06   149.5 MLUPS
+Traceback (most recent call last):
+  File "/media/rhmdarif/BATOCERA/TUGAS/DataCitra/TugasAkhir/Proyek-Akhir-Simulasi-Berbasis-Data-Citra/tiga-takrif-tortuositas/program/02_jalankan_simulasi.py", line 96, in <module>
+    main()
+  File "/media/rhmdarif/BATOCERA/TUGAS/DataCitra/TugasAkhir/Proyek-Akhir-Simulasi-Berbasis-Data-Citra/tiga-takrif-tortuositas/program/02_jalankan_simulasi.py", line 79, in main
+    ringkas = dict(arah=arg.arah, backend=r["backend"], tau=arg.tau, g_kisi=arg.g, tol=arg.tol,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'g_kisi'

@@ -1,0 +1,12 @@
+# Versi pustaka yang dipakai (Python 3.12). Pasang dengan: pip install -r lingkungan.txt
+# Daftar ini cukup untuk menjalankan seluruh program pada CPU, tanpa GPU.
+numpy==2.3.5
+scipy==1.18.1
+matplotlib==3.11.2
+numba==0.68.1
+scikit-image==0.26.0
+
+# Pilihan, hanya untuk backend GPU NVIDIA (CUDA 13). Versi yang dipakai pada laporan:
+#   pip install "numba-cuda[cu13]==0.30.4"
+# Tanpa paket ini program memilih CPU sendiri (umum.gpu_tersedia), dan angkanya sama
+# sampai selisih nisbi sekitar 1e-12 (lihat Bagian 4 laporan, uji CPU terhadap GPU).
