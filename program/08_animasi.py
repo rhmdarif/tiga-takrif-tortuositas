@@ -162,7 +162,7 @@ def gambar_berkembang(arah):
         a1.semilogx(langkah, ux_b / ux_akhir, color=KISI, lw=2)
         a1.semilogx(langkah[sel], ux_b[sel] / ux_akhir, color=WARNA_ARAH[arah], lw=2)
         a1.plot([k], [ux_b[sel][-1] / ux_akhir], "o", color=WARNA_ARAH[arah], ms=6)
-        a1.set_ylim(0, 1.15); a1.set_xlim(langkah[0], kmax)
+        a1.set_ylim(0, max(1.15, float((ux_b / ux_akhir).max()) * 1.08)); a1.set_xlim(langkah[0], kmax)
         a1.set_title("kecepatan rerata / nilai akhir", fontsize=10, loc="left")
         a1.tick_params(labelsize=9)
         a2 = fig.add_subplot(gs[1, 1])
