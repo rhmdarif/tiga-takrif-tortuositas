@@ -1,0 +1,27 @@
+PELUNCUR ALIRAN 3D BENTHEIMER
+
+Salin semua file ini ke folder yang sama dengan index.html dan folder data/:
+
+    folder-aplikasi/
+      index.html
+      data/
+      server.py
+      server.ps1
+      Jalankan-Windows.bat
+      jalankan-linux.sh
+
+WINDOWS
+  Klik dua kali Jalankan-Windows.bat. Browser terbuka otomatis.
+  Memakai Python bila ada; bila tidak, memakai PowerShell bawaan Windows.
+  Untuk ikon di Desktop: klik kanan Jalankan-Windows.bat > Kirim ke > Desktop (buat pintasan).
+
+LINUX
+  Sekali saja:   chmod +x jalankan-linux.sh
+  Menjalankan:   ./jalankan-linux.sh
+  Ikon di menu aplikasi dan Desktop:   ./jalankan-linux.sh --pasang
+  (Butuh python3, yang biasanya sudah terpasang.)
+
+CATATAN
+  - Biarkan jendela terminal terbuka selama aplikasi dipakai; tutup untuk berhenti.
+  - Perlu internet saat dibuka, karena three.js dan font dimuat dari CDN.
+  - Server hanya bisa diakses dari komputer ini sendiri (localhost).

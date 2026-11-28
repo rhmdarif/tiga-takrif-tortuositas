@@ -1,0 +1,30 @@
+{
+ "arah": "x",
+ "ukuran": [
+  256,
+  256,
+  256
+ ],
+ "ukuran_voxel_um": 2.25,
+ "faktor_kasar_permukaan": 3,
+ "cacah_titik_permukaan": 143360,
+ "cacah_segitiga": 287376,
+ "cacah_garis": 360,
+ "cacah_titik_garis": 141425,
+ "laju_kuantil_995": 0.0005083965370431542,
+ "laju_median_pori": 2.7110432711197063e-05,
+ "waktu_maks": 3606341632.0,
+ "cacah_voxel_jalur_bfs": 264,
+ "tau_g_min_jalur": 1.03125,
+ "tau_g_min_tortuositas_json": 1.03125,
+ "garis_sampai_keluar": 343,
+ "rerata_panjang_garis_per_N": 1.431632161140442,
+ "berkas": {
+  "pori_posisi.bin": "float32 (titik, 3)",
+  "pori_indeks.bin": "uint32 (segitiga, 3)",
+  "garis_titik.bin": "float32 (titik, 5): x, y, z, laju, waktu",
+  "garis_awal.bin": "uint32 (garis + 1): indeks titik awal tiap garis",
+  "jalur_bfs.bin": "float32 (voxel, 3)"
+ },
+ "skala_posisi_web": 64
+}

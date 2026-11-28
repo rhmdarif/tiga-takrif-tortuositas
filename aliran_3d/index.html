@@ -1,0 +1,361 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Aliran 3D Bentheimer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Tata letak: satu layar, kanvas 3D mengisi sisa ruang, panel kendali di kanan (di bawah pada ponsel). */
+:root {
+  --bg: #f3f1ec;
+  --panel: #fbfaf7;
+  --fg: #22272e;
+  --muted: #5b6470;
+  --line: #ddd8cd;
+  --hidrolik: #2a78d6;
+  --geometrik: #c4501d;
+  --pasir: #c8b28a;
+  --kanvas: #eceae4;
+  --font-sans: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161b; --panel: #181d24; --fg: #e6e9ee; --muted: #9aa5b1; --line: #2a313b;
+    --hidrolik: #6aaaf5; --geometrik: #f08a4b; --pasir: #8d7d66; --kanvas: #0d1116; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161b; --panel: #181d24; --fg: #e6e9ee; --muted: #9aa5b1; --line: #2a313b;
+  --hidrolik: #6aaaf5; --geometrik: #f08a4b; --pasir: #8d7d66; --kanvas: #0d1116; color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--font-sans); font-size: 15px; line-height: 1.5;
+  display: flex; flex-direction: column;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 12px; box-sizing: border-box;
+}
+header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding-bottom: 10px; }
+h1 { font-size: 1.25rem; font-weight: 600; margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); font-size: 0.875rem; }
+main { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 12px; }
+.panggung { position: relative; min-width: 0; min-height: 360px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--kanvas); }
+#kanvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.status {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; color: var(--muted); font-size: 0.9rem; text-align: center; padding: 16px;
+}
+.status strong { color: var(--fg); font-weight: 500; }
+.status[hidden] { display: none; }
+.petunjuk { position: absolute; left: 12px; bottom: 10px; font-size: 0.78rem; color: var(--muted); pointer-events: none; }
+.sumbu { position: absolute; right: 12px; bottom: 10px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); pointer-events: none; }
+aside {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 16px; overflow-y: auto; min-width: 0;
+}
+aside h2 { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 6px; }
+.lapisan { display: flex; flex-direction: column; gap: 8px; }
+.lapisan label { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.lapisan input { width: 16px; height: 16px; margin: 0; accent-color: var(--hidrolik); }
+.cip { width: 22px; height: 4px; border-radius: 2px; flex: none; }
+.cip.pori { background: var(--pasir); height: 10px; border-radius: 3px; }
+.cip.garis { background: linear-gradient(90deg, #a9c8e8, var(--hidrolik), #0b2f66); }
+.cip.partikel { width: 8px; height: 8px; border-radius: 50%; background: var(--hidrolik); margin: 0 7px; }
+.cip.bfs { background: var(--geometrik); height: 5px; }
+.geser { display: flex; flex-direction: column; gap: 4px; font-size: 0.875rem; }
+.geser input { width: 100%; accent-color: var(--hidrolik); }
+.tombol { display: flex; gap: 8px; flex-wrap: wrap; }
+button {
+  font: inherit; font-size: 0.875rem; padding: 6px 12px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg);
+}
+button[aria-pressed="true"] { border-color: var(--hidrolik); color: var(--hidrolik); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--hidrolik); outline-offset: 2px; }
+dl { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; margin: 0; font-size: 0.875rem; }
+dt { color: var(--muted); }
+dd { margin: 0; font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+.catatan { font-size: 0.8rem; color: var(--muted); margin: 0; }
+.catatan code { font-family: var(--font-mono); font-size: 0.76rem; }
+@media (max-width: 760px) {
+  main { grid-template-columns: 1fr; grid-template-rows: 62vh auto; }
+  aside { overflow: visible; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<header>
+  <h1>Aliran 3D Bentheimer</h1>
+  <span class="sub">256³ voxel · Δx = 2,25 µm · sisi 0,576 mm · aliran arah x · medan kecepatan LBM D3Q19 TRT</span>
+</header>
+<main>
+  <div class="panggung">
+    <canvas id="kanvas" aria-label="Kubus Bentheimer tiga dimensi dengan ruang pori, garis arus, dan lintasan terpendek; seret untuk memutar"></canvas>
+    <div class="status" id="status"><strong>Memuat data 3D</strong><span id="status-rinci">permukaan pori, garis arus, dan lintasan BFS (sekitar 10 MB)</span></div>
+    <div class="petunjuk">seret: putar · gulir: perbesar · klik kanan: geser</div>
+    <div class="sumbu">aliran x →</div>
+  </div>
+  <aside>
+    <section>
+      <h2>Lapisan</h2>
+      <div class="lapisan">
+        <label for="l-pori"><input type="checkbox" id="l-pori" checked><span class="cip pori"></span>Ruang pori penghantar</label>
+        <label for="l-garis"><input type="checkbox" id="l-garis" checked><span class="cip garis"></span>Garis arus (τh)</label>
+        <label for="l-partikel"><input type="checkbox" id="l-partikel" checked><span class="cip partikel"></span>Partikel mengalir</label>
+        <label for="l-bfs"><input type="checkbox" id="l-bfs" checked><span class="cip bfs"></span>Lintasan terpendek BFS (τg)</label>
+      </div>
+    </section>
+    <section class="geser">
+      <label for="g-pori">Kepekatan permukaan pori</label>
+      <input type="range" id="g-pori" min="0.04" max="1" step="0.02" value="0.2">
+      <label for="g-laju">Laju partikel</label>
+      <input type="range" id="g-laju" min="0.2" max="3" step="0.1" value="1">
+    </section>
+    <section class="tombol">
+      <button id="b-putar" type="button" aria-pressed="true">Putar otomatis</button>
+      <button id="b-jeda" type="button" aria-pressed="false">Jeda partikel</button>
+      <button id="b-reset" type="button">Atur ulang tampilan</button>
+    </section>
+    <section>
+      <h2>Yang terlihat</h2>
+      <dl id="angka">
+        <dt>Garis arus</dt><dd id="a-garis">–</dd>
+        <dt>Rerata panjang garis / N</dt><dd id="a-panjang">–</dd>
+        <dt>τh arah x (laporan)</dt><dd>1,4395</dd>
+        <dt>Lintasan BFS</dt><dd id="a-bfs">–</dd>
+        <dt>τg minimum</dt><dd id="a-taug">–</dd>
+        <dt>τg rerata arah x (laporan)</dt><dd>1,3196</dd>
+      </dl>
+    </section>
+    <p class="catatan">Garis arus ditelusuri pada medan kecepatan LBM yang sudah konvergen. Titik awalnya disebar di muka masuk sebanding fluks, dan kegelapan warnanya menandai laju. Partikel bergerak dengan laju sebanding |u|. Jingga adalah lintasan terpendek BFS 6 tetangga, yang memotong lewat leher sempit yang hampir tidak dialiri. Data: <code>program/09_visual3d.py data</code>.</p>
+  </aside>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const fmt = (x, d) => x.toLocaleString('id-ID', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const kurangGerak = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const kanvas = $('kanvas');
+
+  if (!window.THREE || !THREE.OrbitControls) {
+    $('status').innerHTML = '<strong>Pustaka 3D tidak termuat</strong><span>Periksa sambungan internet, lalu muat ulang halaman.</span>';
+    return;
+  }
+
+  const renderer = new THREE.WebGLRenderer({ canvas: kanvas, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, 1, 5000);
+  camera.up.set(0, 0, 1);
+  const awalKamera = new THREE.Vector3(-300, -360, 250);
+  camera.position.copy(awalKamera);
+  const controls = new THREE.OrbitControls(camera, kanvas);
+  controls.enableDamping = true;
+  controls.target.set(0, 0, 0);
+  controls.autoRotate = !kurangGerak;
+  controls.autoRotateSpeed = 0.8;
+  $('b-putar').setAttribute('aria-pressed', String(controls.autoRotate));
+
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8c8577, 0.85));
+  const lampu = new THREE.DirectionalLight(0xffffff, 0.6);
+  lampu.position.set(-1, -2, 3); scene.add(lampu);
+
+  const dunia = new THREE.Group();
+  dunia.position.set(-128, -128, -128);
+  scene.add(dunia);
+
+  // Rusuk kubus batuan
+  const kotak = new THREE.LineSegments(
+    new THREE.EdgesGeometry(new THREE.BoxGeometry(256, 256, 256)),
+    new THREE.LineBasicMaterial({ transparent: true, opacity: 0.45 }));
+  kotak.position.set(128, 128, 128);
+  dunia.add(kotak);
+  // Panah arah aliran di bawah kubus
+  const panah = new THREE.ArrowHelper(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, -24, 0), 90, 0x888888, 14, 8);
+  dunia.add(panah);
+
+  function token(nama) { return getComputedStyle(document.documentElement).getPropertyValue(nama).trim(); }
+  function gelap() {
+    const t = document.documentElement.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  let pori, garis, partikel, jalur, data;
+  const bahanPori = new THREE.MeshStandardMaterial({ transparent: true, opacity: 0.2, depthWrite: false,
+    side: THREE.DoubleSide, roughness: 0.9, metalness: 0 });
+  const bahanGaris = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.85 });
+  const bahanPartikel = new THREE.PointsMaterial({ size: 3.2, sizeAttenuation: false });
+  const bahanJalur = new THREE.MeshStandardMaterial({ roughness: 0.6 });
+
+  // Skala warna laju: terang -> gelap pada tema terang, gelap -> terang pada tema gelap
+  function warnaLaju(s, keluar, i) {
+    const t = Math.pow(Math.min(1, s), 0.6);
+    const henti = gelap() ? [[0.20, 0.33, 0.48], [0.24, 0.56, 0.91], [0.86, 0.93, 1.0]]
+                          : [[0.66, 0.78, 0.91], [0.16, 0.47, 0.84], [0.04, 0.18, 0.40]];
+    const a = t < 0.5 ? henti[0] : henti[1], b = t < 0.5 ? henti[1] : henti[2], u = t < 0.5 ? t * 2 : (t - 0.5) * 2;
+    keluar[i] = a[0] + (b[0] - a[0]) * u; keluar[i + 1] = a[1] + (b[1] - a[1]) * u; keluar[i + 2] = a[2] + (b[2] - a[2]) * u;
+  }
+
+  function terapkanTema() {
+    renderer.setClearColor(new THREE.Color(token('--kanvas') || '#eceae4'));
+    kotak.material.color.set(token('--muted') || '#5b6470');
+    panah.setColor(new THREE.Color(token('--muted') || '#5b6470'));
+    bahanPori.color.set(token('--pasir') || '#c8b28a');
+    bahanJalur.color.set(token('--geometrik') || '#c4501d');
+    bahanPartikel.color.set(gelap() ? '#e8f2ff' : '#0b2f66');
+    if (garis && data) {
+      const warna = garis.geometry.getAttribute('color');
+      const laju = data.lajuTitik, q = data.meta.laju_kuantil_995;
+      for (let k = 0; k < garis.userData.indeksTitik.length; k++) warnaLaju(laju[garis.userData.indeksTitik[k]] / q, warna.array, k * 3);
+      warna.needsUpdate = true;
+    }
+  }
+
+  // Data biner dikirim sebagai teks base64 (.txt); diurai kembali menjadi bait
+  async function ambil(nama) {
+    const r = await fetch('data/' + nama);
+    if (!r.ok) throw new Error(nama + ' (' + r.status + ')');
+    const s = atob((await r.text()).trim());
+    const b = new Uint8Array(s.length);
+    for (let i = 0; i < s.length; i++) b[i] = s.charCodeAt(i);
+    return b.buffer;
+  }
+
+  async function muat() {
+    const [meta, posisi, indeks, titik, awal, bfs] = await Promise.all([
+      fetch('data/visual3d.json').then((r) => { if (!r.ok) throw new Error('visual3d.json'); return r.json(); }),
+      ambil('pori_posisi.txt'), ambil('pori_indeks.txt'), ambil('garis_titik.txt'), ambil('garis_awal.txt'), ambil('jalur_bfs.txt')]);
+    data = { meta };
+
+    // Permukaan pori (posisi disimpan sebagai uint16 dalam 1/64 voxel)
+    const q = new Uint16Array(posisi), skala = meta.skala_posisi_web || 64;
+    const pf = new Float32Array(q.length);
+    for (let i = 0; i < q.length; i++) pf[i] = q[i] / skala;
+    const gp = new THREE.BufferGeometry();
+    gp.setAttribute('position', new THREE.BufferAttribute(pf, 3));
+    gp.setIndex(new THREE.BufferAttribute(new Uint32Array(indeks), 1));
+    gp.computeVertexNormals();
+    pori = new THREE.Mesh(gp, bahanPori); pori.renderOrder = 2;
+    dunia.add(pori);
+
+    // Garis arus sebagai ruas-ruas (satu geometri)
+    const T = new Float32Array(titik), A = new Uint32Array(awal);
+    const nGaris = A.length - 1;
+    data.lajuTitik = new Float32Array(T.length / 5);
+    for (let i = 0; i < data.lajuTitik.length; i++) data.lajuTitik[i] = T[i * 5 + 3];
+    let nRuas = 0;
+    for (let g = 0; g < nGaris; g++) nRuas += A[g + 1] - A[g] - 1;
+    const pos = new Float32Array(nRuas * 6), indeksTitik = new Uint32Array(nRuas * 2);
+    let k = 0;
+    for (let g = 0; g < nGaris; g++) {
+      for (let i = A[g]; i < A[g + 1] - 1; i++) {
+        for (let e = 0; e < 2; e++) {
+          const j = i + e;
+          pos[k * 3] = T[j * 5]; pos[k * 3 + 1] = T[j * 5 + 1]; pos[k * 3 + 2] = T[j * 5 + 2];
+          indeksTitik[k] = j; k++;
+        }
+      }
+    }
+    const gg = new THREE.BufferGeometry();
+    gg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    gg.setAttribute('color', new THREE.BufferAttribute(new Float32Array(nRuas * 6), 3));
+    garis = new THREE.LineSegments(gg, bahanGaris);
+    garis.userData.indeksTitik = indeksTitik;
+    dunia.add(garis);
+
+    // Partikel: tiap garis membawa beberapa partikel; posisinya mengikuti waktu tempuh kumulatif
+    const perGaris = 3;
+    const median = [];
+    for (let g = 0; g < nGaris; g++) median.push(T[(A[g + 1] - 1) * 5 + 4]);
+    median.sort((a, b) => a - b);
+    data.skalaWaktu = median[Math.floor(median.length / 2)] / 9;     // garis median ditempuh sekitar 9 detik
+    data.partikel = [];
+    for (let g = 0; g < nGaris; g++) for (let p = 0; p < perGaris; p++) data.partikel.push({ g, fase: Math.random() });
+    data.T = T; data.A = A;
+    const gpar = new THREE.BufferGeometry();
+    gpar.setAttribute('position', new THREE.BufferAttribute(new Float32Array(data.partikel.length * 3), 3));
+    partikel = new THREE.Points(gpar, bahanPartikel);
+    dunia.add(partikel);
+
+    // Lintasan terpendek BFS sebagai tabung bersudut tegak, setia pada langkah 6 tetangga
+    const J = new Float32Array(bfs);
+    const lintas = new THREE.CurvePath();
+    for (let i = 0; i < J.length / 3 - 1; i++) {
+      lintas.add(new THREE.LineCurve3(new THREE.Vector3(J[i * 3], J[i * 3 + 1], J[i * 3 + 2]),
+                                      new THREE.Vector3(J[i * 3 + 3], J[i * 3 + 4], J[i * 3 + 5])));
+    }
+    jalur = new THREE.Mesh(new THREE.TubeGeometry(lintas, (J.length / 3) * 2, 1.4, 6, false), bahanJalur);
+    dunia.add(jalur);
+
+    $('a-garis').textContent = meta.cacah_garis + ' (' + meta.garis_sampai_keluar + ' tembus)';
+    $('a-panjang').textContent = fmt(meta.rerata_panjang_garis_per_N, 3);
+    $('a-bfs').textContent = meta.cacah_voxel_jalur_bfs + ' voxel';
+    $('a-taug').textContent = fmt(meta.tau_g_min_jalur, 5);
+    terapkanTema();
+    $('status').hidden = true;
+  }
+
+  // Posisi partikel: cari titik pada garis dengan waktu kumulatif yang sesuai (pencarian biner)
+  let jam = 0, jeda = kurangGerak;
+  $('b-jeda').setAttribute('aria-pressed', String(jeda));
+  function geserPartikel(dt) {
+    if (!data || !data.partikel) return;
+    if (!jeda) jam += dt * parseFloat($('g-laju').value);
+    const arr = partikel.geometry.getAttribute('position').array, T = data.T, A = data.A;
+    data.partikel.forEach((p, n) => {
+      const a = A[p.g], b = A[p.g + 1] - 1, Ttot = T[b * 5 + 4];
+      const t = ((jam * data.skalaWaktu / Ttot + p.fase) % 1) * Ttot;
+      let lo = a, hi = b;
+      while (hi - lo > 1) { const m = (lo + hi) >> 1; if (T[m * 5 + 4] <= t) lo = m; else hi = m; }
+      const t0 = T[lo * 5 + 4], t1 = T[hi * 5 + 4], u = t1 > t0 ? (t - t0) / (t1 - t0) : 0;
+      for (let c = 0; c < 3; c++) arr[n * 3 + c] = T[lo * 5 + c] + (T[hi * 5 + c] - T[lo * 5 + c]) * u;
+    });
+    partikel.geometry.getAttribute('position').needsUpdate = true;
+  }
+
+  function ukur() {
+    const w = kanvas.clientWidth, h = kanvas.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+  new ResizeObserver(ukur).observe(kanvas);
+
+  let lalu = performance.now();
+  function putar(now) {
+    const dt = Math.min(0.1, (now - lalu) / 1000); lalu = now;
+    geserPartikel(dt);
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(putar);
+  }
+
+  // Kendali
+  const pasang = (id, obj) => $(id).addEventListener('change', (e) => { const o = obj(); if (o) o.visible = e.target.checked; });
+  pasang('l-pori', () => pori); pasang('l-garis', () => garis); pasang('l-partikel', () => partikel); pasang('l-bfs', () => jalur);
+  $('g-pori').addEventListener('input', (e) => {
+    const v = parseFloat(e.target.value);
+    bahanPori.opacity = v; bahanPori.depthWrite = v > 0.95; bahanPori.transparent = v <= 0.95; bahanPori.needsUpdate = true;
+  });
+  $('b-putar').addEventListener('click', (e) => {
+    controls.autoRotate = !controls.autoRotate; e.currentTarget.setAttribute('aria-pressed', String(controls.autoRotate));
+  });
+  $('b-jeda').addEventListener('click', (e) => { jeda = !jeda; e.currentTarget.setAttribute('aria-pressed', String(jeda)); });
+  $('b-reset').addEventListener('click', () => { camera.position.copy(awalKamera); controls.target.set(0, 0, 0); controls.update(); });
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', terapkanTema);
+  new MutationObserver(terapkanTema).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  terapkanTema(); ukur(); requestAnimationFrame(putar);
+  muat().catch((err) => {
+    $('status').hidden = false;
+    $('status').innerHTML = '<strong>Data 3D tidak dapat dimuat</strong><span>Berkas yang gagal: ' + String(err.message || err) + '. Muat ulang halaman untuk mencoba lagi.</span>';
+  });
+})();
+</script>
+
+</body></html>
